@@ -265,4 +265,14 @@ class StudentManager:
             print(f'Error: {e}')
             return False
     @staticmethod
-    def see_my_balance():
+    def see_my_balance(login):
+        try:
+            data = JSONFIleManager(filename).load_data()
+            for student in data:
+                if student['login'] == login:
+                    print(student['balance'])
+                    return True
+            return False
+        except Exception as e:
+            print(f'Error: {e}')
+            return False

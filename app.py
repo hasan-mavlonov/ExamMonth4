@@ -1,4 +1,3 @@
-import datetime
 import random
 import threading
 from Managers.adminmanager import AdminManager
@@ -454,13 +453,23 @@ def student_menu(login) -> None:
     text = """
 1. See all groups
 2. See my balance
-3. Edit"""
+3. Edit
+4. Exit"""
     user_input = input(text)
     if user_input == "1":
         for i in GroupManager.show_group_list():
             print(i)
         input('Press ANY KEY to continue: ')
     elif user_input == '2':
+        StudentManager.see_my_balance(login)
+        input('Press ANY KEY to continue: ')
+    elif user_input == '3':
+        pass
+    elif user_input == '4':
+        auth_menu()
+    else:
+        print("Invalid input. Try again!")
+        student_menu(login)
 
 
 def auth_menu() -> (str, None):
@@ -485,7 +494,7 @@ def auth_menu() -> (str, None):
         elif StudentManager.check_existence(username):
             password = input("Password: ")
             if StudentManager.check_password(username, password):
-                student_menu(login)
+                student_menu(username)
         else:
             print('There is no user named such. Try again!')
             auth_menu()
