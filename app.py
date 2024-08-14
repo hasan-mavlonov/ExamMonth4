@@ -519,7 +519,15 @@ def teacher_menu(username) -> None:
             teacher_menu(username)
         else:
             print('There is no group named such. Try again!')
+        teacher_menu(username)
     elif user_input == '3':
+        group_name = input("Enter group name: ")
+        if GroupManager(group_name).check_existence():
+            input('Press ANY KEY to end a lesson: ')
+            teacher_menu(username)
+        else:
+            print('There is no group named such. Try again!')
+        teacher_menu(username)
     elif user_input == '4':
         auth_menu()
     else:
