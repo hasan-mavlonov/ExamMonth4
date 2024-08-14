@@ -8,7 +8,7 @@ filename = 'data/students.json'
 
 logging.basicConfig(level=logging.INFO,
                     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-                    filename="../app.log",
+                    filename='app.log',
                     datefmt='%d-%m-%y %H:%M:%S'
                     )
 
