@@ -1,8 +1,8 @@
-from Managers.jsonfilemanager import JSONFIleManager
+from JSON.jsonfilemanager import JSONFIleManager
 import logging
 import hashlib
 
-filename = 'data/teachers.json'
+filename = 'Users/Admin/admins.json'
 
 logging.basicConfig(level=logging.INFO,
                     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
@@ -29,18 +29,18 @@ def log_decorator(func):
 logger = logging.getLogger(__name__)
 
 
-class TeacherManager:
-    def __init__(self, username):
+class AdminManager:
+    def __init__(self, username: str):
         self.username = username
 
     @staticmethod
     @log_decorator
-    def show_teacher_list() -> list:
+    def show_admin_list() -> list:
         try:
             data = JSONFIleManager(filename).load_data()
-            for teacher in data:
-                yield (f"Full name: {teacher['full_name']}\n"
-                       f"Username: {teacher['username']}\n")
+            for admin in data:
+                yield (f"Full name: {admin['full_name']}\n"
+                       f"Username: {admin['username']}\n")
         except Exception as e:
             print(e)
             return False
@@ -49,8 +49,8 @@ class TeacherManager:
     def check_existence(self) -> bool:
         try:
             data = JSONFIleManager(filename).load_data()
-            for teacher in data:
-                if teacher['username'] == self.username:
+            for admin in data:
+                if admin['username'] == self.username:
                     return True
             return False
         except Exception as e:
@@ -62,9 +62,9 @@ class TeacherManager:
         try:
             data = JSONFIleManager(filename).load_data()
             hashed_password = hashlib.sha256(password.encode()).hexdigest()
-            for teacher in data:
-                if teacher['username'] == self.username:
-                    if teacher['password'] == hashed_password:
+            for admin in data:
+                if admin['username'] == self.username:
+                    if admin['password'] == hashed_password:
                         return True
             return False
         except Exception as e:
@@ -72,7 +72,7 @@ class TeacherManager:
             return False
 
     @log_decorator
-    def create_teacher(self, full_name: str, password: str) -> bool:
+    def create_admin(self, full_name: str, password: str) -> bool:
         try:
             data = JSONFIleManager(filename).load_data()
             hashed_password = hashlib.sha256(password.encode()).hexdigest()
@@ -93,9 +93,9 @@ class TeacherManager:
     def change_name(self, new_name: str) -> bool:
         try:
             data = JSONFIleManager(filename).load_data()
-            for teacher in data:
-                if teacher['username'] == self.username:
-                    teacher['full_name'] = new_name
+            for admin in data:
+                if admin['username'] == self.username:
+                    admin['full_name'] = new_name
                     JSONFIleManager(filename).save_data(data)
                     return True
             return False
@@ -108,9 +108,9 @@ class TeacherManager:
         try:
             new_hashed_password = hashlib.sha256(new_password.encode()).hexdigest()
             data = JSONFIleManager(filename).load_data()
-            for teacher in data:
-                if teacher['username'] == self.username:
-                    teacher['password'] = new_hashed_password
+            for admin in data:
+                if admin['username'] == self.username:
+                    admin['password'] = new_hashed_password
                     JSONFIleManager(filename).save_data(data)
                     return True
             return False
@@ -122,9 +122,9 @@ class TeacherManager:
     def change_username(self, new_username: str) -> bool:
         try:
             data = JSONFIleManager(filename).load_data()
-            for teacher in data:
-                if teacher['username'] == self.username:
-                    teacher['username'] = new_username
+            for admin in data:
+                if admin['username'] == self.username:
+                    admin['username'] = new_username
                     JSONFIleManager(filename).save_data(data)
                     return True
             return False
@@ -133,16 +133,15 @@ class TeacherManager:
             return False
 
     @log_decorator
-    def delete_teacher(self) -> bool:
+    def delete_admin(self) -> bool:
         try:
             data = JSONFIleManager(filename).load_data()
-            for teacher in data:
-                if teacher('username') == self.username:
-                    data.remove(teacher)
+            for admin in data:
+                if admin('username') == self.username:
+                    data.remove(admin)
                     JSONFIleManager(filename).save_data(data)
                     return True
             return False
         except Exception as e:
             print(e)
             return False
-

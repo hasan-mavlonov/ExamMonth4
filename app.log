@@ -1,5 +1,1 @@
-14-08-24 16:50:29 - Managers.adminmanager - INFO - Function: <function AdminManager.check_existence at 0x0000028E6E2DD940> Args: (<Managers.adminmanager.AdminManager object at 0x0000028E6E278F20>,) Result: True
-14-08-24 16:50:30 - Managers.adminmanager - INFO - Function: <function AdminManager.check_password at 0x0000028E6E2DDA80> Args: (<Managers.adminmanager.AdminManager object at 0x0000028E6DE7BBC0>, 'admin') Result: True
-14-08-24 16:50:39 - Managers.teachermanager - INFO - Function: <function TeacherManager.show_teacher_list at 0x0000028E6E2DE660> Args: () Result: <generator object TeacherManager.show_teacher_list at 0x0000028E6E23A890>
-14-08-24 16:50:43 - Managers.teachermanager - INFO - Function: <function TeacherManager.check_existence at 0x0000028E6E2DE7A0> Args: (<Managers.teachermanager.TeacherManager object at 0x0000028E70202D50>,) Result: True
-14-08-24 16:50:51 - Managers.groupmanager - INFO - Function: <function GroupManager.create_group at 0x0000028E6E2DF560> Args: (<Managers.groupmanager.GroupManager object at 0x0000028E70202F90>, 'sanjar', 20, '13:00', '15:00') Result: True
+14-08-24 17:21:14 - Users.Admin.adminmanager - INFO - Function: <function AdminManager.check_existence at 0x000002A006F6DB20> Args: (<Users.Admin.adminmanager.AdminManager object at 0x000002A008ED0B00>,) Result: False

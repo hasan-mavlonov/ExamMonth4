@@ -1,10 +1,10 @@
-from Managers.jsonfilemanager import JSONFIleManager
-from Managers.emailmanager import EmailManager
-from Managers.messagemanager import MessageManager
+from JSON.jsonfilemanager import JSONFIleManager
+from Email.emailmanager import EmailManager
+from Email.messagemanager import MessageManager
 import logging
 import hashlib
 
-filename = 'data/students.json'
+filename = 'Users/Teacher/students.json'
 
 logging.basicConfig(level=logging.INFO,
                     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',

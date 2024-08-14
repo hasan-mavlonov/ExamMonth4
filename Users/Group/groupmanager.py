@@ -1,8 +1,8 @@
-from Managers.jsonfilemanager import JSONFIleManager
+from JSON.jsonfilemanager import JSONFIleManager
 import logging
 import hashlib
 
-filename = 'data/groups.json'
+filename = 'Users/Group/groups.json'
 
 logging.basicConfig(level=logging.INFO,
                     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',

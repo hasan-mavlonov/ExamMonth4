@@ -1,10 +1,10 @@
 import random
 import threading
-from Managers.adminmanager import AdminManager
-from Managers.teachermanager import TeacherManager
-from Managers.groupmanager import GroupManager
-from Managers.studentmanager import StudentManager
-from Managers.emailmanager import EmailManager
+from Users.Admin.adminmanager import AdminManager
+from Users.Teacher.teachermanager import TeacherManager
+from Users.Group.groupmanager import GroupManager
+from Users.Student.studentmanager import StudentManager
+from Email.emailmanager import EmailManager
 
 
 def check_email(email):

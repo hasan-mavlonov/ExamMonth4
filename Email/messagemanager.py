@@ -1,8 +1,8 @@
-from Managers.jsonfilemanager import JSONFIleManager
+from JSON.jsonfilemanager import JSONFIleManager
 import datetime
 import logging
 
-filename = 'data/messages.json'
+filename = 'Email/messages.json'
 
 logging.basicConfig(level=logging.INFO,
                     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
