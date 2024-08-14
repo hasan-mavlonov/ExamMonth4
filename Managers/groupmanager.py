@@ -128,3 +128,14 @@ class GroupManager:
             print(e)
             return False
 
+    def show_group_students(self):
+        try:
+            data = JSONFIleManager(filename).load_data()
+            for group in data:
+                if group['group_name'] == self.group_name:
+                    students = group['students']
+                    for student in students:
+                        yield student
+        except Exception as e:
+            print(e)
+            return False

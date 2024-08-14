@@ -513,7 +513,10 @@ def teacher_menu(username) -> None:
     elif user_input == "2":
         group_name = input("Enter group name: ")
         if GroupManager(group_name).check_existence():
-
+            for student in GroupManager(group_name).show_group_students():
+                print(student)
+            input('Press ANY KEY to continue: ')
+            teacher_menu(username)
         else:
             print('There is no group named such. Try again!')
     elif user_input == '3':
