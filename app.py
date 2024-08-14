@@ -502,9 +502,26 @@ def teacher_menu(username) -> None:
 1. See all groups 
 2. See group's students | group_name
 3. Start a lesson| group_name
+4. Exit
 """
     user_input = input(text)
-    pass
+    if user_input == "1":
+        for i in GroupManager.show_group_list():
+            print(i)
+        input('Press ANY KEY to continue: ')
+        teacher_menu(username)
+    elif user_input == "2":
+        group_name = input("Enter group name: ")
+        if GroupManager(group_name).check_existence():
+
+        else:
+            print('There is no group named such. Try again!')
+    elif user_input == '3':
+    elif user_input == '4':
+        auth_menu()
+    else:
+        print('Invalid input. Try again!')
+        teacher_menu(username)
 
 
 def auth_menu() -> (str, None):
