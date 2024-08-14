@@ -1,6 +1,6 @@
-from ExamMonth4.Managers.jsonfilemanager import JSONFIleManager
-from ExamMonth4.Managers.emailmanager import EmailManager
-from ExamMonth4.Managers.messagemanager import MessageManager
+from Managers.jsonfilemanager import JSONFIleManager
+from Managers.emailmanager import EmailManager
+from Managers.messagemanager import MessageManager
 import logging
 import hashlib
 

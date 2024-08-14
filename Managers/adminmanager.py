@@ -1,4 +1,4 @@
-from ExamMonth4.Managers.jsonfilemanager import JSONFIleManager
+from Managers.jsonfilemanager import JSONFIleManager
 import logging
 import hashlib
 

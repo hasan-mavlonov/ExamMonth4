@@ -1,11 +1,11 @@
 import datetime
 import random
 import threading
-from ExamMonth4.Managers.adminmanager import AdminManager
-from ExamMonth4.Managers.teachermanager import TeacherManager
-from ExamMonth4.Managers.groupmanager import GroupManager
-from ExamMonth4.Managers.studentmanager import StudentManager
-from ExamMonth4.Managers.emailmanager import EmailManager
+from Managers.adminmanager import AdminManager
+from Managers.teachermanager import TeacherManager
+from Managers.groupmanager import GroupManager
+from Managers.studentmanager import StudentManager
+from Managers.emailmanager import EmailManager
 
 
 def check_email(email):
