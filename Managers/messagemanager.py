@@ -49,6 +49,7 @@ class MessageManager:
             print(e)
             return False
 
+    @log_decorator
     def add_receiver(self, receiver):
         data = JSONFIleManager(filename).load_data()
         for messages in data:
@@ -60,6 +61,7 @@ class MessageManager:
             return True
 
     @staticmethod
+    @log_decorator
     def show_message_with_time():
         try:
             data = JSONFIleManager(filename).load_data()
@@ -74,6 +76,7 @@ Time: {message['time']}
             return False
 
     @staticmethod
+    @log_decorator
     def show_messages_by_email(email):
         try:
             data = JSONFIleManager(filename).load_data()
@@ -99,7 +102,9 @@ Time: {message['time']}
         except Exception as e:
             print(e)
             return False
+
     @staticmethod
+    @log_decorator
     def show_messages_by_read_email(email):
         try:
             data = JSONFIleManager(filename).load_data()

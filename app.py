@@ -464,37 +464,47 @@ def student_menu(login) -> None:
         StudentManager.see_my_balance(login)
         input('Press ANY KEY to continue: ')
     elif user_input == '3':
-            gmail = input("Gmail: ")
-            if check_email(gmail):
-                if StudentManager.delete_student(login):
-                    full_name = input("Full name: ")
-                    number = input("Enter student's number: ")
-                    gender = str(input("Enter student's gender: "))
-                    age = input("Enter student's age: ")
-                    verification_code = random.randint(10000, 99999)
-                    login = str(random.randint(10000, 99999))
-                    password = input('Enter password: ')
-                    verification_code = str(verification_code)
-                    th1 = threading.Thread(target=verify_password, args=(gmail, verification_code,))
-                    th1.start()
-                    if check_code(verification_code):
-                        print('Your code has been verified!')
-                        if not StudentManager(gmail).register_a_student(login, password, full_name, number, age, gender):
-                            print('Try again!')
-                        else:
-                            print('Successfully registered!')
-                            print(f"Login: {login}\nPassword: {password}")
-                            student_menu(login)
-                    else:
+        gmail = input("Gmail: ")
+        if check_email(gmail):
+            if StudentManager.delete_student(login):
+                full_name = input("Full name: ")
+                number = input("Enter student's number: ")
+                gender = str(input("Enter student's gender: "))
+                age = input("Enter student's age: ")
+                verification_code = random.randint(10000, 99999)
+                login = str(random.randint(10000, 99999))
+                password = input('Enter password: ')
+                verification_code = str(verification_code)
+                th1 = threading.Thread(target=verify_password, args=(gmail, verification_code,))
+                th1.start()
+                if check_code(verification_code):
+                    print('Your code has been verified!')
+                    if not StudentManager(gmail).register_a_student(login, password, full_name, number, age, gender):
                         print('Try again!')
-            else:
-                print("Invalid email. Try again!")
-                student_menu(login)
+                    else:
+                        print('Successfully registered!')
+                        print(f"Login: {login}\nPassword: {password}")
+                        student_menu(login)
+                else:
+                    print('Try again!')
+        else:
+            print("Invalid email. Try again!")
+            student_menu(login)
     elif user_input == '4':
         auth_menu()
     else:
         print("Invalid input. Try again!")
         student_menu(login)
+
+
+def teacher_menu(username) -> None:
+    text = """
+1. See all groups 
+2. See group's students | group_name
+3. Start a lesson| group_name
+"""
+    user_input = input(text)
+    pass
 
 
 def auth_menu() -> (str, None):
@@ -520,6 +530,10 @@ def auth_menu() -> (str, None):
             password = input("Password: ")
             if StudentManager.check_password(username, password):
                 student_menu(username)
+        elif TeacherManager(username).check_existence():
+            password = input("Password: ")
+            if TeacherManager.check_password(password):
+                teacher_menu(username)
         else:
             print('There is no user named such. Try again!')
             auth_menu()
