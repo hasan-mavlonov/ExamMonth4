@@ -7,7 +7,7 @@ from Users.Student.studentmanager import StudentManager
 from Email.emailmanager import EmailManager
 
 
-def check_email(email):
+def check_email(email: str) -> bool:
     # checks if the email is valid
     if '@gmail.com' in email:
         return True
@@ -15,7 +15,8 @@ def check_email(email):
         return False
 
 
-def check_code(verification_code):
+def check_code(verification_code: str) -> bool:
+    # checks if the code is similar to the one that was sent
     received_code = input('Enter code that you received: ')
     if received_code == verification_code:
         return True
@@ -24,7 +25,8 @@ def check_code(verification_code):
         return False
 
 
-def verify_password(email, verification_code):
+def verify_password(email: str, verification_code: str):
+    # sends email to the user
     receiver = email
     subject = 'Verification Code'
     message = f'Here is your verification code: {verification_code}'
