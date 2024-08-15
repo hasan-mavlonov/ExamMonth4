@@ -8,6 +8,7 @@ from Email.emailmanager import EmailManager
 
 
 def check_email(email):
+    # checks if the email is valid
     if '@gmail.com' in email:
         return True
     else:
